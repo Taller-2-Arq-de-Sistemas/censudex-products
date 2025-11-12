@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "6Z150UOqtcA=",
+  "dgSpecHash": "BOB7T6zfm+o=",
   "success": true,
   "projectFilePath": "C:\\yin\\4-UCN-4\\10-Decimo Semestre\\Arquitectura de sistemas\\Talleres\\Taller 2\\censudex-products\\censudex-products.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\yinko\\.nuget\\packages\\cloudinarydotnet\\1.27.8\\cloudinarydotnet.1.27.8.nupkg.sha512",
     "C:\\Users\\yinko\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
     "C:\\Users\\yinko\\.nuget\\packages\\dotnetenv\\3.1.1\\dotnetenv.3.1.1.nupkg.sha512",
     "C:\\Users\\yinko\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.8\\microsoft.aspnetcore.openapi.8.0.8.nupkg.sha512",
@@ -20,6 +21,7 @@
     "C:\\Users\\yinko\\.nuget\\packages\\mongodb.bson\\3.5.0\\mongodb.bson.3.5.0.nupkg.sha512",
     "C:\\Users\\yinko\\.nuget\\packages\\mongodb.driver\\3.5.0\\mongodb.driver.3.5.0.nupkg.sha512",
     "C:\\Users\\yinko\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
+    "C:\\Users\\yinko\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\yinko\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",
     "C:\\Users\\yinko\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",
     "C:\\Users\\yinko\\.nuget\\packages\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",
