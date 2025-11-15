@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+option csharp_namespace = "censudex-products";
+
+package products;
+
+// Mensaje para representar un producto
+message Product {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  double price = 4;
+  int32 stock = 5;
+  string imageUrl = 6;
+  bool isActive = 7; //Revisar esto
+}
+
+// Peticiones
+message Empty {}
+message ProductIdRequest {
+  string id = 1;
+}
+message NewProductRequest {
+  string name = 1;
+  string description = 2;
+  decimal price = 3;
+  string category = 4;
+  bytes imageUrl = 5;
+}
+message UpdateProductRequest {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  decimal price = 4;
+  string category = 5;
+  bytes imageUrl = 6;
+}
+message ProductIdSoftDeleteRequest {
+  string id = 1;
+}
+
+// Respuestas
+message ProductList {
+  repeated Product products = 1;
+}
+message ProductResponse {
+  bool success = 1;
+  string message = 2;
+  Product product = 3;
+}
+
+// Definición del servicio
+service ProductService {
+  rpc GetAllProducts (Empty) returns (ProductList);
+  rpc GetProductById (ProductIdRequest) returns (Product);
+  rpc CreateProduct (NewProductRequest) returns (ProductResponse);
+  rpc UpdateProduct (UpdateProductRequest) returns (ProductResponse);
+  rpc SoftDeleteProduct (ProductIdRequest) returns (ProductResponse);
+}
