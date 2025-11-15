@@ -5,6 +5,9 @@ using MongoDB.Bson;
 using System.Text.Json.Serialization;
 using CloudinaryDotNet;
 using censudex_products.src.Services;
+using censudex_products.src.Seeders;
+using censudex_products.src.Interfaces;
+using censudex_products.src.Repositories;
 
 
 
@@ -33,6 +36,8 @@ MongoClient mongoClient = new MongoClient(linkDb);
 
 var database = mongoClient.GetDatabase(nameDb);
 
+
+
 // Configuracion Cloudinary
 var account = new Account(
     Environment.GetEnvironmentVariable("CLOUDINARY_CLOUD_NAME"),
@@ -46,7 +51,7 @@ var cloudinary = new Cloudinary(account);
 builder.Services.AddSingleton(cloudinary);
 builder.Services.AddSingleton(database);
 builder.Services.AddControllers();
-
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 
 builder.Services.AddEndpointsApiExplorer();
@@ -64,6 +69,16 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.MapControllers();
 app.MapGrpcService<ProductGrpcService>();
+
+
+
+// Ejecutar seeder
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<IMongoDatabase>();
+    var productSeeder = new ProductSeeder(db);
+    await productSeeder.SeedAsync();
+}
 
 app.Run();
 
