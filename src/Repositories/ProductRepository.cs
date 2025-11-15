@@ -62,24 +62,10 @@ namespace censudex_products.src.Repositories
             return result.ModifiedCount > 0;
         }
 
-        public async Task<List<Product>> GetAll(string? category, string? name)
+        public async Task<List<Product>> GetAll()
         {
             var filters = new List<FilterDefinition<Product>>();
             var builder = Builders<Product>.Filter;
-
-
-            if (!string.IsNullOrEmpty(category))
-            {
-                filters.Add(builder.Eq(t => t.category, category));
-            }
-
-            if (!string.IsNullOrEmpty(name))
-            {
-                filters.Add(builder.Eq(t => t.name, name)); 
-                // Nota: .Date asegura que no compare con la hora
-            }
-
-         
 
             var filter = filters.Any() ? builder.And(filters) : builder.Empty;
 
@@ -89,8 +75,7 @@ namespace censudex_products.src.Repositories
         public async Task<Product> GetById(string id)
         {
             var filter = Builders<Product>.Filter.And(
-                Builders<Product>.Filter.Eq(t => t.Id, id),
-                Builders<Product>.Filter.Eq(t => t.isActive, true)
+                Builders<Product>.Filter.Eq(t => t.Id, id)
             );
             var result =  await _products.Find(filter).FirstOrDefaultAsync();
             return result;

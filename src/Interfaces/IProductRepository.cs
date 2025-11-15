@@ -10,7 +10,7 @@ namespace censudex_products.src.Interfaces
     public interface IProductRepository
     {
         Task<Product> Add(Product product);
-        Task<List<Product>> GetAll(string? category, string? name);
+        Task<List<Product>> GetAll();
         Task<Product> GetById(string id);
         Task<bool> Update(string id,UpdateProductDto  product);
         Task<bool> DeleteSoft(string id); 

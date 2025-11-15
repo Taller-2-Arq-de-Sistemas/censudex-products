@@ -1,18 +1,18 @@
 syntax = "proto3";
 
-option csharp_namespace = "censudex-products";
+option csharp_namespace = "productProto";
 
 package products;
 
-// Mensaje para representar un producto
+
 message Product {
   string id = 1;
   string name = 2;
   string description = 3;
   double price = 4;
-  int32 stock = 5;
-  string imageUrl = 6;
-  bool isActive = 7; //Revisar esto
+  string category = 7;
+  string imageUrl = 5;
+  bool isActive = 6; //Revisar esto
 }
 
 // Peticiones
@@ -23,17 +23,17 @@ message ProductIdRequest {
 message NewProductRequest {
   string name = 1;
   string description = 2;
-  decimal price = 3;
+  double price = 3;
   string category = 4;
-  bytes imageUrl = 5;
+  bytes image = 5;
 }
 message UpdateProductRequest {
   string id = 1;
   string name = 2;
   string description = 3;
-  decimal price = 4;
+  double price = 4;
   string category = 5;
-  bytes imageUrl = 6;
+  bytes image = 6;
 }
 message ProductIdSoftDeleteRequest {
   string id = 1;

@@ -4,10 +4,15 @@ using MongoDB.Bson.Serialization.Conventions;
 using MongoDB.Bson;
 using System.Text.Json.Serialization;
 using CloudinaryDotNet;
+using censudex_products.src.Services;
 
 
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddGrpc();
+
+
+
 
 
 Env.Load();
@@ -58,7 +63,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.MapControllers();
-
+app.MapGrpcService<ProductGrpcService>();
 
 app.Run();
 
