@@ -6421,11 +6421,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\yin\\4-UCN-4\\10-Decimo Semestre\\Arquitectura de sistemas\\Talleres\\Taller 2\\censudex-products\\censudex-products.csproj",
+      "projectUniqueName": "C:\\yin\\4-UCN-4\\10-DecimoSemestre\\Arquitecturadesistemas\\Talleres\\Taller2\\censudex-products\\censudex-products.csproj",
       "projectName": "censudex-products",
-      "projectPath": "C:\\yin\\4-UCN-4\\10-Decimo Semestre\\Arquitectura de sistemas\\Talleres\\Taller 2\\censudex-products\\censudex-products.csproj",
+      "projectPath": "C:\\yin\\4-UCN-4\\10-DecimoSemestre\\Arquitecturadesistemas\\Talleres\\Taller2\\censudex-products\\censudex-products.csproj",
       "packagesPath": "C:\\Users\\yinko\\.nuget\\packages\\",
-      "outputPath": "C:\\yin\\4-UCN-4\\10-Decimo Semestre\\Arquitectura de sistemas\\Talleres\\Taller 2\\censudex-products\\obj\\",
+      "outputPath": "C:\\yin\\4-UCN-4\\10-DecimoSemestre\\Arquitecturadesistemas\\Talleres\\Taller2\\censudex-products\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\yinko\\AppData\\Roaming\\NuGet\\NuGet.Config",

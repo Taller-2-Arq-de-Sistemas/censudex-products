@@ -32,7 +32,18 @@ builder.Services
 string linkDb = Environment.GetEnvironmentVariable("DATABASE_URL") ?? "mongodb+srv://<UserName>:<Contraseña>@base-ticket-service.y9rcn0b.mongodb.net/?retryWrites=true&w=majority&appName=Base-Ticket-Service";
 string nameDb = Environment.GetEnvironmentVariable("DATABASE_NAME") ?? "Data-base-ticket-service";
 
-MongoClient mongoClient = new MongoClient(linkDb);
+var settings = MongoClientSettings.FromConnectionString(linkDb);
+settings.SslSettings = new SslSettings
+{
+    EnabledSslProtocols = System.Security.Authentication.SslProtocols.Tls12
+};
+settings.UseTls = true;
+settings.AllowInsecureTls = true; // Add this for development
+
+var mongoClient = new MongoClient(settings);
+
+
+
 
 var database = mongoClient.GetDatabase(nameDb);
 
@@ -73,6 +84,7 @@ app.MapGrpcService<ProductGrpcService>();
 
 
 // Ejecutar seeder
+
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<IMongoDatabase>();

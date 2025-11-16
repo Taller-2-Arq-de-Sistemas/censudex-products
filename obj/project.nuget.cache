@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "P+O2i0GzJ8Y=",
+  "dgSpecHash": "FdFpK7EoJKU=",
   "success": true,
-  "projectFilePath": "C:\\yin\\4-UCN-4\\10-Decimo Semestre\\Arquitectura de sistemas\\Talleres\\Taller 2\\censudex-products\\censudex-products.csproj",
+  "projectFilePath": "C:\\yin\\4-UCN-4\\10-DecimoSemestre\\Arquitecturadesistemas\\Talleres\\Taller2\\censudex-products\\censudex-products.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\yinko\\.nuget\\packages\\cloudinarydotnet\\1.27.8\\cloudinarydotnet.1.27.8.nupkg.sha512",
     "C:\\Users\\yinko\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
