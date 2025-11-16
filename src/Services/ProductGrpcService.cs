@@ -110,6 +110,7 @@ namespace censudex_products.src.Services
                     Name = newProduct.name,
                     Description = newProduct.description,
                     Price = (double)newProduct.price,
+                    IsActive = newProduct.isActive,
                     Category = newProduct.category,
                     ImageUrl = newProduct.imageUrl
                 }
@@ -123,13 +124,25 @@ namespace censudex_products.src.Services
             if (string.IsNullOrWhiteSpace(request.Id))
                 throw new RpcException(new Status(StatusCode.InvalidArgument, "El ID es requerido."));
 
+            // Verificar si el producto existe
+            var product = await _productRepository.GetById(request.Id);
+
+            if (product == null)
+            {
+                return new ProductResponse
+                {
+                    Success = false,
+                    Message = "El producto no existe."
+                };
+            }
+
             // Construir DTO
             var updateProduct = new UpdateProductDto
             {
-                name = request.Name,
-                description = request.Description,
-                category = request.Category,
-                price = request.Price == 0 ? null : (decimal?)request.Price,
+                name = request.Name == "" ? null : request.Name,
+                description = request.Description == "" ? null : request.Description,
+                category = request.Category == "" ? null : request.Category,
+                price = request.Price <= 0 ? null : (decimal?)request.Price,
                 imageUrl = null 
             };
 
@@ -165,7 +178,7 @@ namespace censudex_products.src.Services
                 return new ProductResponse
                 {
                     Success = false,
-                    Message = "No se actualizó ningún producto."
+                    Message = "No se actualizó ningún apartado del producto o este esta desactivado."
                 };
             }
 
